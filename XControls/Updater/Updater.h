@@ -1,7 +1,7 @@
-#pragma once
+#ifndef UPDATER_H
+#define UPDATER_H
 
 #include <QtWidgets/QMainWindow>
-#include "ui_Updater.h"
 
 class Updater : public QMainWindow
 {
@@ -11,5 +11,6 @@ public:
     Updater(QWidget *parent = Q_NULLPTR);
 
 private:
-    Ui::UpdaterClass ui;
 };
+
+#endif
