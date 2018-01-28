@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/XControlsExample">
+        <file alias="stylesheet">XControlsExample.qss</file>
+        <file alias="language_zh">xcontrolsexample_zh.qm</file>
+    </qresource>
+</RCC>
