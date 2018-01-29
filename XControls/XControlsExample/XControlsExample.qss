@@ -1,2 +1,31 @@
 *{
 }
+
+QTableView::item:hover{
+    /*border:none;*/
+    background-color:transparent;
+}
+
+QTableView::item:pressed{
+    /*border:none;*/
+    background-color:blue;
+}
+
+QTableView::item:selected{
+    /*border:none;*/
+    background-color:green;
+}
+
+XLineEditWithButton > QLineEdit{
+    border-width:2px;
+    border-image:url(:/images/bg_lineedit) 2 2 2 2;
+    height:36px;
+}
+
+XLineEditWithButton XPushButton{
+    width:33px;
+    height:33px;
+    qproperty-icon:url(:/images/folder);
+    border:none;
+    qproperty-iconSize:33px;
+}

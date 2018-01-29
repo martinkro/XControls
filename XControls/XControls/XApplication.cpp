@@ -18,7 +18,7 @@ void XApplication::initialize()
 {
     XLogger::getInstance().setLogFileName(logFileName);
     qInstallMessageHandler(XLogger::messageHandler);
-	//intializeFonts();
+	intializeFonts();
 	intializeTranslator();
 	intializeStyleSheet();
 }
@@ -87,17 +87,15 @@ void XApplication::intializeFonts()
 	}
 	
 
-	yhPath = homeDir + "/fonts/MSYHBD.TTC";
-	if (QFile::exists(yhPath))
-	{
-		int fontBoldId = QFontDatabase::addApplicationFont(yhPath);
-		fontName = QFontDatabase::applicationFontFamilies(fontBoldId).at(0);
-		qDebug() << fontName;
-	}
-	else
-	{
-		qWarning() << "font:" << yhPath << " not exists";
-	}
-
-	
+	//yhPath = homeDir + "/fonts/MSYHBD.TTC";
+	//if (QFile::exists(yhPath))
+	//{
+	//	int fontBoldId = QFontDatabase::addApplicationFont(yhPath);
+	//	fontName = QFontDatabase::applicationFontFamilies(fontBoldId).at(0);
+	//	qDebug() << fontName;
+	//}
+	//else
+	//{
+	//	qWarning() << "font:" << yhPath << " not exists";
+	//}
 }

@@ -3,4 +3,8 @@
         <file alias="stylesheet">XControlsExample.qss</file>
         <file alias="language_zh">xcontrolsexample_zh.qm</file>
     </qresource>
+    <qresource prefix="/images">
+        <file alias="folder">images/icon_folder.png</file>
+        <file alias="bg_lineedit">images/bg_lineedit.png</file>
+    </qresource>
 </RCC>
