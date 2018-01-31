@@ -19,13 +19,30 @@ QTableView::item:selected{
 XLineEditWithButton > QLineEdit{
     border-width:2px;
     border-image:url(:/images/bg_lineedit) 2 2 2 2;
-    height:36px;
+    height:38px;
+    padding-left:10px;
+    padding-right:45px;
 }
 
 XLineEditWithButton XPushButton{
-    width:33px;
-    height:33px;
+    width:35px;
+    height:35px;
     qproperty-icon:url(:/images/folder);
     border:none;
-    qproperty-iconSize:33px;
+    qproperty-iconSize:35px;
+    
+}
+
+*{
+    /*border:1px solid red;*/
+}
+DialogBase{
+    qproperty-minimumSize:545px 440px;
+    qproperty-maximumSize:545px 440px;
+}
+
+DialogBase QLabel#main{
+    qproperty-minimumSize:545px 440px;
+    qproperty-maximumSize:545px 440px;
+    background-image:url(images/dlg_advance_config_bg.png);
 }

@@ -16,6 +16,9 @@ class XControlsExample : public QMainWindow
 public:
     XControlsExample(QWidget *parent = Q_NULLPTR);
 
+protected:
+    void paintEvent(QPaintEvent* e)override;
+
 private:
     void createMiddleWidget();
     void createTableView();

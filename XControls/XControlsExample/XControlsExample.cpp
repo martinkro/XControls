@@ -3,6 +3,7 @@
 #include "FixedTableModel.h"
 
 #include "LineEditPage.h"
+#include "dialogbase.h"
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -10,7 +11,11 @@
 #include <QStringListModel>
 #include <QHeaderView>
 #include <QScrollBar>
+#include <QPushButton>
 #include <QDebug>
+#include <QDialog>
+#include <QPainter>
+#include <QBitmap>
 
 const int MAIN_WINDOW_WIDTH = 960;
 const int MAIN_WINDOW_HEIGHT = 600;
@@ -18,6 +23,16 @@ XControlsExample::XControlsExample(QWidget *parent)
     : QMainWindow(parent)
 {
    
+    //setAttribute(Qt::WA_TranslucentBackground);
+    //setAttribute(Qt::WA_TranslucentBackground);
+    //setAttribute(Qt::WA_NoSystemBackground, false);
+
+    //QPixmap pixmap("images/bg.png");
+    //QPalette palette;
+    //palette.setBrush(backgroundRole(), QBrush(pixmap));
+    //setPalette(palette);
+    //setMask(pixmap.mask());
+    //setAutoFillBackground(true);
     createMiddleWidget();
 
     // top
@@ -28,11 +43,21 @@ XControlsExample::XControlsExample(QWidget *parent)
     QStringListModel* typeModel = new QStringListModel(typeList);
     typeComboBox->setModel(typeModel);
 
+    QPushButton* aboutButton = new QPushButton(tr("About"));
+    connect(aboutButton, &QPushButton::clicked, [=]() {
+    
+        DialogBase dlg;
+        dlg.exec();
+    });
+
+
+
     auto hbox = new QHBoxLayout;
     hbox->setContentsMargins(0, 0, 0, 0);
     hbox->setSpacing(0);
     hbox->addWidget(typeLabel);
     hbox->addWidget(typeComboBox, 1);
+    hbox->addWidget(aboutButton);
     QWidget* topWidget = new QWidget;
     topWidget->setObjectName("top");
     topWidget->setLayout(hbox);
@@ -106,4 +131,12 @@ void XControlsExample::createTableView()
     fixedTableView->resizeRowsToContents();
 
     pageManager->addWidget(fixedTableView);
+}
+
+void XControlsExample::paintEvent(QPaintEvent* e)
+{
+    //QPainter p(this);
+    //p.fillRect(rect(), QColor(0, 0xff, 0, 1));
+    //QPainter painter(this);
+    //painter.drawPixmap(0, 0, 50, 50, QPixmap("images/dlg_bg.png"));
 }

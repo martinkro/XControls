@@ -3,6 +3,9 @@
 #include <QWidget>
 
 class QLineEdit;
+class QMovie;
+class QLabel;
+class QPushButton;
 
 class LineEditPage :public QWidget
 {
@@ -12,4 +15,8 @@ public:
 
 private:
     QLineEdit* testLineEdit;
+    QLabel* loadingLabel;
+    QMovie* loadingMovie;
+    QPushButton* startButton;
+    QPushButton* stopButton;
 };

@@ -4,6 +4,9 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QAction>
+#include <QPushButton>
+#include <QLabel>
+#include <QMovie>
 
 LineEditPage::LineEditPage(QWidget* parent) :
     QWidget(parent)
@@ -17,8 +20,28 @@ LineEditPage::LineEditPage(QWidget* parent) :
 
     XLineEditWithButton* pathLineEdit = new XLineEditWithButton;
 
+    loadingLabel = new QLabel;
+    loadingMovie = new QMovie(this);
+
+    startButton = new QPushButton(tr("Start"));
+    stopButton = new QPushButton(tr("Stop"));
+
+    auto layoutButton = new QHBoxLayout;
+    layoutButton->addWidget(startButton);
+    layoutButton->addWidget(stopButton);
+
     auto main = new QVBoxLayout;
     main->addWidget(testLineEdit, 0, Qt::AlignHCenter);
     main->addWidget(pathLineEdit, 0, Qt::AlignHCenter);
+    main->addWidget(loadingLabel, 0, Qt::AlignHCenter);
+    main->addLayout(layoutButton);
     setLayout(main);
+
+    loadingMovie->setFileName("images/loading/ajax-loader_3.gif");
+    loadingLabel->setMovie(loadingMovie);
+
+    connect(startButton, &QPushButton::clicked, [=]() {loadingMovie->start(); });
+    connect(stopButton, &QPushButton::clicked, [=]() {loadingMovie->stop(); });
+
+    //setCursor(Qt::ArrowCursor);
 }

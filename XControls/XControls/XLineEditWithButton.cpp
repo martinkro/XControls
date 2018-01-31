@@ -12,7 +12,7 @@ XLineEditWithButton::XLineEditWithButton(QWidget* parent) :
     pathLineEdit->setObjectName("path");
     pathButton = new XPushButton;
     pathButton->setObjectName("path");
-    pathLineEdit->setTextMargins(10, 1, 10+33, 1);
+    //pathLineEdit->setTextMargins(10, 1, 10+33, 1);
 
     auto hbox = new QHBoxLayout;
     hbox->setContentsMargins(1, 1, 10, 1);
