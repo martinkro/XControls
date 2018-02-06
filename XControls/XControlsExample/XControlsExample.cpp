@@ -33,6 +33,9 @@ XControlsExample::XControlsExample(QWidget *parent)
     //setPalette(palette);
     //setMask(pixmap.mask());
     //setAutoFillBackground(true);
+    setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
+    //setWindowOpacity(0.1);
+
     createMiddleWidget();
 
     // top
