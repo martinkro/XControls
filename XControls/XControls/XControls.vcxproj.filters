@@ -102,6 +102,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_XPushButton.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="XFramelessWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_XFramelessWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_XFramelessWindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XControls.h">
@@ -133,6 +142,9 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="XPushButton.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="XFramelessWindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

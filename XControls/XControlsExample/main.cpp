@@ -1,5 +1,8 @@
 #include "XControlsExample.h"
+#include "MainWindow.h"
 #include "XControls/XApplication.h"
+#include "XControls/XWidget.h"
+
 #include <QDebug>
 #include <QTemporaryDir>
 #include <QDir>
@@ -7,7 +10,7 @@
 #include <windows.h>
 #include <map>
 
-#include "XControls/XWidget.h"
+
 int main(int argc, char *argv[])
 {
 
@@ -68,9 +71,9 @@ int main(int argc, char *argv[])
         ret = QDir().rmdir(symbolPath);
     }
     //XControlsExample w;
-    XWidget w;
-    w.setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
-    w.setFixedSize(960, 600);
+    MainWindow w;
+    //w.setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
+    //w.setFixedSize(960, 600);
     w.show();
 
     return a.exec();
