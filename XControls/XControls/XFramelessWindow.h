@@ -11,7 +11,6 @@ public:
 
 public:
     void setTitleBarHeight(int h) { titleBarHeight = h; }
-    void setResizeable(bool resizeable = true);
 
 protected:
     virtual void paintEvent(QPaintEvent* event);
@@ -25,14 +24,4 @@ private:
     bool isPressed;
     QPoint currentPos;
     int titleBarHeight;
-
-    QWidget* m_titlebar;
-    QList<QWidget*> m_whiteList;
-    int m_borderWidth;
-
-    QMargins m_margins;
-    QMargins m_frames;
-    bool m_bJustMaximized;
-
-    bool m_bResizeable;
 };
