@@ -15,6 +15,8 @@
 #pragma comment (lib,"user32.lib")
 
 #include <QDebug>
+#include <QPainter>
+#include <QtCore/qmath.h>
 
 CFramelessWindow::CFramelessWindow(QWidget *parent)
     : QWidget(parent),
@@ -30,8 +32,13 @@ CFramelessWindow::CFramelessWindow(QWidget *parent)
 
     //setResizeable(m_bResizeable);
     HWND hwnd = (HWND)this->winId();
-    DWORD style = ::GetWindowLong(hwnd, GWL_STYLE);
-    SetWindowLong(hwnd, GWL_STYLE, style & ~WS_CAPTION);
+    //DWORD style = ::GetWindowLong(hwnd, GWL_STYLE);
+    const LONG style = (WS_POPUP |  WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CLIPCHILDREN);
+    SetWindowLongPtr(hwnd, GWL_STYLE, style);
+    //SetWindowLong(hwnd, GWL_STYLE, style & ~WS_CAPTION);
+
+    const MARGINS shadow = { 1, 1, 1, 1 };
+    DwmExtendFrameIntoClientArea(HWND(winId()), &shadow);
 }
 
 void CFramelessWindow::setResizeable(bool resizeable)
@@ -69,8 +76,8 @@ void CFramelessWindow::setResizeable(bool resizeable)
     //保留一个像素的边框宽度，否则系统不会绘制边框阴影
     //
     //we better left 1 piexl width of border untouch, so OS can draw nice shadow around it
-    //const MARGINS shadow = { 1, 1, 1, 1 };
-    //DwmExtendFrameIntoClientArea(HWND(winId()), &shadow);
+    const MARGINS shadow = { 1, 1, 1, 1 };
+    DwmExtendFrameIntoClientArea(HWND(winId()), &shadow);
 
     setVisible(visible);
 }
@@ -327,6 +334,52 @@ void CFramelessWindow::showFullScreen()
         m_frames = QMargins();
     }
     QWidget::showFullScreen();
+}
+
+void CFramelessWindow::paintEvent(QPaintEvent* e)
+{
+    //QPainter painter(this);
+    //QColor color(92, 93, 95, 50);
+    //int arr[10] = { 150,120,80,50,40,30,20,10,5,5 };
+    //for (int i = 0; i<10; i++)
+    //{
+    //    QPainterPath path;
+    //    path.setFillRule(Qt::WindingFill);
+    //    if (i == 5)
+    //        path.addRect(10 - i - 1, 10 - i - 1, this->width() - (10 - i) * 2, this->height() - (10 - i) * 2);
+    //    else
+    //        path.addRoundedRect(10 - i - 1, 10 - i - 1, this->width() - (10 - i) * 2, this->height() - (10 - i) * 2, 2, 2);
+
+    //    color.setAlpha(arr[i]);
+    //    painter.setPen(color);
+    //    painter.drawPath(path);
+
+    //}
+
+    QPainterPath path;
+    path.setFillRule(Qt::WindingFill);
+    path.addRect(10, 10, this->width() - 20, this->height() - 20);
+
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.fillPath(path, QBrush(Qt::white));
+
+    //QRect border(-5, -5, this->width() + 5, this->height() + 5);
+    //painter.setPen(QColor(Qt::red));
+    //painter.drawRect(border);
+
+    QColor color(0x1f, 0x28, 0x48, 50);
+    for (int i = 0; i<10; i++)
+    {
+        QPainterPath path;
+        path.setFillRule(Qt::WindingFill);
+        path.addRect(10 - i, 10 - i, this->width() - (10 - i) * 2, this->height() - (10 - i) * 2);
+        color.setAlpha(150 - qSqrt(i) * 50);
+        painter.setPen(color);
+        painter.drawPath(path);
+    }
+
+    QWidget::paintEvent(e);
 }
 
 #endif //Q_OS_WIN

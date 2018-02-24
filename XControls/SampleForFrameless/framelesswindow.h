@@ -43,6 +43,9 @@ protected:
     void addIgnoreWidget(QWidget* widget);
 
     bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+
+
+    void paintEvent(QPaintEvent* e)override;
 private slots:
     void onTitleBarDestroyed();
 public:
