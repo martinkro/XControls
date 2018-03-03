@@ -1,4 +1,8 @@
 <RCC>
-    <qresource prefix="Updater">
+    <qresource prefix="/updater">
+        <file alias="stylesheet">updater.qss</file>
+        <file alias="language_zh">updater_zh.qm</file>
+    </qresource>
+    <qresource prefix="/images">
     </qresource>
 </RCC>
