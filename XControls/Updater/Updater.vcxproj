@@ -112,6 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Updater.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="update_version.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Updater.qrc">
@@ -127,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Updater.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="SampleGUI.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
