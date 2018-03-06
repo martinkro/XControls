@@ -45,7 +45,7 @@ Makefile*
 CMakeLists.txt.user*
 bin/
 intermediate/
-
+out/
 *.qm
 *.log
 
