@@ -13,4 +13,5 @@ public:
 
 private slots:
     void toUpper();
+    void toUpper_data();
 };

@@ -35,12 +35,18 @@
     <ClCompile Include="TestQString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestGui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="TestXWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="TestQString.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TestGui.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
