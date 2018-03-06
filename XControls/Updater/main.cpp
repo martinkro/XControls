@@ -1,4 +1,5 @@
 #include "Updater.h"
+#include "XControls/XApplication.h"
 #include <QtWidgets/QApplication>
 #include <QDebug>
 
@@ -40,10 +41,7 @@ void GetPEFileVersion(const QString& exePath)
 
 int main(int argc, char *argv[])
 {
-   
-    
-    QApplication a(argc, argv);
-
+    /*
     QString appDir = qApp->applicationDirPath();
     QString appName = qApp->applicationName();
 
@@ -54,6 +52,25 @@ int main(int argc, char *argv[])
     qDebug() << "exePath:" << exePath;
 
     GetPEFileVersion(exePath);
+    */
+
+    QString logFileName = "updater.log";
+
+#ifdef QT_DEBUG
+    QString qssName = "updater.qss";
+    QString translatorName = "updater_zh.qm";
+#else
+    QString qssName = ":/updater/stylesheet";
+    QString translatorName = ":/updater/language_zh";
+#endif
+
+
+
+    XApplication a(argc, argv);
+    a.setLogFileName(logFileName);
+    a.setQssName(qssName);
+    a.setTranslatorName(translatorName);
+    a.initialize();
 
     Updater w;
     w.show();

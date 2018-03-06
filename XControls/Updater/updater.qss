@@ -1,0 +1,66 @@
+*{
+}
+
+QTableView::item:hover{
+    /*border:none;*/
+    background-color:transparent;
+}
+
+QTableView::item:pressed{
+    /*border:none;*/
+    background-color:blue;
+}
+
+QTableView::item:selected{
+    /*border:none;*/
+    background-color:green;
+}
+
+XLineEditWithButton > QLineEdit{
+    border-width:2px;
+    border-image:url(:/images/bg_lineedit) 2 2 2 2;
+    height:38px;
+    padding-left:10px;
+    padding-right:45px;
+}
+
+XLineEditWithButton XPushButton{
+    width:35px;
+    height:35px;
+    qproperty-icon:url(:/images/folder);
+    border:none;
+    qproperty-iconSize:35px;
+    
+}
+
+*{
+    /*border:1px solid red;*/
+}
+DialogBase{
+    qproperty-minimumSize:545px 440px;
+    qproperty-maximumSize:545px 440px;
+}
+
+DialogBase QLabel#main{
+    qproperty-minimumSize:545px 440px;
+    qproperty-maximumSize:545px 440px;
+    background-image:url(images/dlg_advance_config_bg.png);
+}
+
+Updater{
+    background-color:blue;
+}
+
+QProgressBar:horizontal{
+    qproperty-minimumSize:200px 10px;
+    qproperty-maximumSize:200px 10px;
+    background-color:#f3f3f3;
+    /*border: 1px solid gray;*/
+    border-radius:6px;
+    text-align: right;
+}
+
+QProgressBar::chunk:horizontal{
+    background-color:orange;
+    border-radius:6px;
+}
